@@ -53,6 +53,6 @@ public class น้มุ_2805 {
 		
 		System.out.println(max);
 
-	}
+	} 
 
 }
