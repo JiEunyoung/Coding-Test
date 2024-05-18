@@ -11,8 +11,8 @@ public class 백준_1697 {
 	
 	static int[] time = new int[100001];
 	
-	static int N;
-	static int K;
+	static int N; //수빈 위치
+	static int K; //동생 위치
 	
 	public static void bfs(int n) {
 		Queue<Integer> queue = new LinkedList<Integer>();
@@ -25,21 +25,21 @@ public class 백준_1697 {
 			int x = queue.poll();
 			
 			if(x == K) {
-				return;
+				return; //메소드 종료
 			}
 			
-			if(x-1 > 0 && time[x-1] == 0) {
-				time[x-1] = time[x] + 1;
+			if(x-1 >= 0 && time[x-1] == 0) { //방문하지 않은 곳인 경우
+				time[x-1] = time[x] + 1; //1초 증가
 				queue.add(x-1);
 			}
 			
-			if(x+1 < 100001 && time[x+1] == 0) {
-				time[x+1] = time[x] + 1;
+			if(x+1 <= 100000 && time[x+1] == 0) { //방문하지 않은 곳인 경우
+				time[x+1] = time[x] + 1; //1초 증가
 				queue.add(x+1);
 			}
 			
-			if(x*2 < 100001 && time[2*x] == 0) {
-				time[2*x] = time[x] + 1;
+			if(x*2 <= 100000 && time[2*x] == 0) { //방문하지 않은 곳인 경우
+				time[2*x] = time[x] + 1; //1초 증가
 				queue.add(2*x);
 			}
 		}
